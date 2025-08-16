@@ -1,0 +1,565 @@
+:root {
+    --primary: #1e5091;
+    --primary-dark: #0d407b;
+    --secondary: #25D366;
+    --secondary-hover: #1da851;
+    --text: #222222;
+    --light-text: #cccccc;
+    --white: #ffffff;
+    --light-bg: #f5f8fc;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --hero-text: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: url('assets/ponte-25-abril.jpg') no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.6;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    background-color: rgba(30, 80, 145, 0.95);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.lang-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-weight: 600;
+    padding: 5px 10px;
+    margin-left: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s, background-color 0.2s;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.lang-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lang-button.active {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.hero-content {
+    color: var(--hero-text);
+    padding: 2rem 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.benefits {
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+.benefit-icon {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.benefit-icon i {
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.form-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    color: var(--text);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.8rem 2rem 0.8rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: border 0.3s;
+    box-sizing: border-box;
+    position: relative; 
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.clear-input {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--light-text);
+    display: none;
+    font-size: 1.2rem;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-input:hover {
+    opacity: 1;
+    color: #333;
+}
+
+input:not(:placeholder-shown) + .clear-input {
+    display: block;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--white);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.summary {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--primary);
+}
+
+.summary-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.summary-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+}
+
+.summary-label {
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.8rem;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
+}
+
+.button i {
+    margin-right: 8px;
+}
+
+.whatsapp-button {
+    background-color: var(--secondary);
+}
+
+.whatsapp-button:hover {
+    background-color: var(--secondary-hover);
+}
+
+footer {
+    background: rgba(30, 80, 145, 0.95);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .benefit-item {
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+.seat-group {
+    margin: 1rem 0;
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.counter button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.counter button:hover {
+    background-color: var(--primary-dark);
+}
+
+.counter span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-width: 24px;
+    text-align: center;
+}
+
+.step {
+    display: none;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+}
+
+.form-buttons button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-buttons button:hover {
+    background-color: var(--primary-dark);
+}
+
+#prevBtn {
+    background-color: var(--light-text);
+    color: var(--text);
+}
+
+#prevBtn:hover {
+    background-color: #999;
+    color: var(--white);
+}
+
+.datetime-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.datetime-group .half {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 600px) {
+    .datetime-group {
+        flex-direction: column;
+    }
+
+    .datetime-group .half {
+        width: 100%;
+    }
+}
+.input-wrapper {
+position: relative;
+}
+
+.input-wrapper input {
+width: 100%;
+padding-right: 2.5rem; 
+}
+
+.input-wrapper .clear-input {
+position: absolute;
+top: 50%;
+right: 0.8rem;
+transform: translateY(-50%);
+cursor: pointer;
+color: var(--light-text);
+font-size: 1.2rem;
+line-height: 1;
+display: none;
+opacity: 0.6;
+}
+
+.input-wrapper .clear-input:hover {
+opacity: 1;
+color: #333;
+}
+
+.input-wrapper input:not(:placeholder-shown) + .clear-input {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+border-color: red; 
+}
+
+.passenger-categories {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+gap: 0.5rem;
+margin-bottom: 1rem;
+}
+
+.passenger-category {
+background: var(--light-bg);
+padding: 0.5rem;
+border-radius: 8px;
+box-shadow: var(--shadow);
+}
+
+.passenger-category label {
+display: block;
+font-weight: 500;
+margin-bottom: 0.25rem;
+color: var(--text);
+font-size: 0.9rem;
+}
+
+.step[data-step="1"] {
+display: block;
+}
+
+.passenger-summary {
+background: #f0f4f8;
+border: 1px solid #ccc;
+padding: 0.8rem;
+border-radius: 8px;
+cursor: pointer;
+margin-bottom: 1rem;
+transition: background 0.3s;
+}
+
+.passenger-summary:hover {
+background: #e2e8f0;
+}
+
+.passenger-modal {
+background: var(--card-bg);
+border: 1px solid #ccc;
+padding: 1rem;
+border-radius: 8px;
+box-shadow: var(--shadow);
+display: none;
+margin-bottom: 1rem;
+}
+
+.passenger-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1rem;
+}
+
+.passenger-row span {
+font-weight: 500;
+}

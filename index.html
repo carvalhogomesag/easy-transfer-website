@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 1. META TAGS OTIMIZADAS PARA SEO -->
+    <title>Lisbon Airport Private Transfers | Fixed Price | Easy Transfer Lisbon</title>
+    <meta name="description" content="Book your private transfer from Lisbon Airport. Fixed prices to the city centre, Sintra, Cascais, or anywhere in Portugal. No surge pricing, no waiting. English-speaking drivers.">
+    <meta name="keywords" content="Lisbon airport transfer, transfer Lisbon, private transfer, Lisbon taxi, Albufeira transfer, Sintra transfer, Cascais, Fátima, Porto">
+    <meta name="author" content="Easy Transfer Lisbon">
+
+    <!-- Meta Tags para Redes Sociais (Open Graph) -->
+    <!-- IMPORTANTE: Substitua "https://www.oseusite.com" pelo seu domínio real quando o tiver -->
+    <meta property="og:title" content="Lisbon Airport Private Transfers | Easy Transfer Lisbon" />
+    <meta property="og:description" content="Fixed prices, English-speaking drivers, and a personal meet & greet service at the airport." />
+    <meta property="og:image" content="https://www.oseusite.com/assets/ponte-25-abril.jpg" />
+    <meta property="og:url" content="https://www.oseusite.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Links para Fonts e Ícones (externos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Ligação para o nosso ficheiro de CSS -->
+    <link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+    <img src="assets/ponte-25-abril.jpg" alt="Ponte 25 de Abril em Lisboa ao pôr do sol, um destino popular para transfers." style="display: none;">
+
+    <div class="overlay">
+        <header>
+            <a href="index.html" class="logo-container" style="text-decoration: none;">
+                <i class="fas fa-car logo-icon"></i>
+                <!-- 2. MELHORIA SEMÂNTICA: O nome da empresa já não é o H1 principal -->
+                <span id="title" style="font-size: 1.5rem; font-weight: 600; color: white;">Easy Transfer Lisbon</span>
+            </a>
+            <div class="language-switcher">
+                <button class="lang-button active" id="enButton">EN</button>
+                <button class="lang-button" id="ptButton">PT</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="content-grid">
+				<div class="form-card">
+                    <h2 class="card-title" id="formTitle">Request a Free Quote</h2>
+
+                    <div id="wizard">
+                        <!-- Step 1 -->
+                        <div class="step" data-step="1">
+                            <div class="form-group">
+						        <label id="originLabel" for="origin">Pick-up Location</label>
+							    <div class="input-wrapper">
+								    <input type="text" id="origin" placeholder="e.g., Lisbon Airport, Hotel name..." required>
+								    <i class="fas fa-times clear-input" id="clear-origin"></i>
+							    </div>
+							</div>
+                            <div class="form-group">
+							    <label id="destinationLabel" for="destination">Drop-off Location</label>
+							    <div class="input-wrapper">
+								    <input type="text" id="destination" placeholder="e.g., Porto, Algarve, Hotel name..." required>
+								    <i class="fas fa-times clear-input" id="clear-destination"></i>
+							    </div>
+						    </div>
+                            <div class="datetime-group">
+                                <div class="form-group half">
+                                    <label id="dateLabel" for="date">Pick-up Date</label>
+                                    <input type="date" id="date" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label id="timeLabel" for="time">Pick-up Time</label>
+                                    <input type="time" id="time" required>
+                                </div>
+                            </div>
+                        </div>
+						
+                        <!-- Step 2 -->
+						<div class="step" data-step="2" style="display: none;">
+						  <div class="summary" id="routeSummary">
+							<h3 class="summary-title">Trip Summary</h3>
+							<p><strong>Distance:</strong> <span id="distanceKm"></span> km (<span id="distanceMiles"></span> mi)</p>
+							<p><strong>Estimated Time:</strong> <span id="durationFormatted"></span></p>
+							<div id="mapPreview" style="height: 300px; border-radius: 8px; margin-top: 1rem;"></div>
+						  </div>
+						</div>
+
+                        <!-- Step 3 -->
+                        <div class="step" data-step="3" style="display: none;">
+                            <div class="form-group">
+                                <label id="nameLabel" for="name">Passenger Name</label>
+                                <input type="text" id="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Your email address" 
+										pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+										title="Please use a valid email format (e.g., seuemail@exemplo.com)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+351 9xxxxxxxx" 
+										pattern="\+351\s?9\d{8}"
+										title="Please use the format +351 9xxxxxxxx (e.g., +351 912345678)" required>
+                            </div>
+                            <div class="form-group">
+                                <label id="passengersLabel">Passengers</label>
+                                <div id="passengerSummary" class="passenger-summary" onclick="togglePassengerModal()">
+                                    👥 Select number of passengers
+                                </div>
+                                <div id="passengerModal" class="passenger-modal">
+                                    <div class="passenger-row"><span>👤 Adults (18+)</span><div class="counter"><button type="button" onclick="changePassengerCount('adults', -1)">–</button><span id="adultsCount">1</span><button type="button" onclick="changePassengerCount('adults', 1)">+</button></div></div>
+                                    <div class="passenger-row"><span>👦 Youths (12–17)</span><div class="counter"><button type="button" onclick="changePassengerCount('youths', -1)">–</button><span id="youthsCount">0</span><button type="button" onclick="changePassengerCount('youths', 1)">+</button></div></div>
+                                    <div class="passenger-row"><span>🧒 Children (2–11)</span><div class="counter"><button type="button" onclick="changePassengerCount('children', -1)">–</button><span id="childrenCount">0</span><button type="button" onclick="changePassengerCount('children', 1)">+</button></div></div>
+                                    <div class="passenger-row"><span>👶 Babies (0–24m)</span><div class="counter"><button type="button" onclick="changePassengerCount('babies', -1)">–</button><span id="babiesCount">0</span><button type="button" onclick="changePassengerCount('babies', 1)">+</button></div></div>
+                                    <button type="button" class="button" onclick="togglePassengerModal()">Done</button>
+                                </div>
+                            </div>
+							<div class="toggle-container" id="seatsToggleContainer" style="display: none;"><label id="seatLabel" for="seats">Child seats needed?</label><label class="switch"><input type="checkbox" id="seats"><span class="slider"></span></label></div>
+                            <div id="seatOptions" style="display: none; margin-top: 1rem;"><div class="form-group"><label><strong>Choose child seats:</strong></label><div class="seat-group"><p><strong>Group 0+</strong>: Up to 13 kg (~12–15 months)</p><div class="counter"><button type="button" onclick="changeSeat('group0p', -1)">–</button><span id="group0pCount">0</span><button type="button" onclick="changeSeat('group0p', 1)">+</button></div></div><div class="seat-group"><p><strong>Group I</strong>: 9–18 kg (~9 months to 4 years)</p><div class="counter"><button type="button" onclick="changeSeat('group1', -1)">–</button><span id="group1Count">0</span><button type="button" onclick="changeSeat('group1', 1)">+</button></div></div><div class="seat-group"><p><strong>Group II</strong>: 15–25 kg (~4 to 6 years)</p><div class="counter"><button type="button" onclick="changeSeat('group2', -1)">–</button><span id="group2Count">0</span><button type="button" onclick="changeSeat('group2', 1)">+</button></div></div><div class="seat-group"><p><strong>Group III</strong>: 22–36 kg (~6 to 12 years)</p><div class="counter"><button type="button" onclick="changeSeat('group3', -1)">–</button><span id="group3Count">0</span><button type="button" onclick="changeSeat('group3', 1)">+</button></div></div></div></div>
+                            <div class="toggle-container"><label id="signLabel" for="sign">Welcome sign with your name?</label><label class="switch"><input type="checkbox" id="sign" checked><span class="slider"></span></label></div>
+                            <div class="form-group"><label id="commentsLabel" for="comments">Special Requests</label><textarea id="comments" rows="3" placeholder="Flight number, special assistance..."></textarea></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="step" data-step="4" style="display: none;">
+                            <div class="summary" id="summary">
+                                <h4 class="summary-title" id="summaryTitle">Confirm Your Request</h4>
+                                <div id="summaryContent"></div>
+                            </div>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="form-buttons">
+							<button type="button" id="prevBtn" onclick="nextPrev(-1)" style="display: none;">Previous</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                            <button type="button" id="submitBtn" onclick="sendWhatsApp()" style="display: none;" class="whatsapp-button"><i class="fab fa-whatsapp"></i> <span data-lang="submitBtn">Send Quote Request via WhatsApp</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo Hero -->
+                <section class="hero-content">
+                    <!-- 2. MELHORIA SEMÂNTICA: Este é agora o H1, o título mais importante. -->
+                    <h1 class="hero-title" id="heroTitle">Your Private Transfer in Lisbon and Portugal</h1>
+                    <p class="hero-subtitle" id="heroSubtitle">Enjoy a comfortable and reliable journey with our professional, English-speaking drivers. The perfect alternative to airport taxis and ride-sharing apps.</p>
+                    
+                    <!-- 3. REFORÇO DOS BENEFÍCIOS -->
+                    <div class="benefits">
+                        <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-check"></i></div><span id="benefit1"><strong>Fixed price guarantee</strong> - no surge pricing like Uber</span></div>
+                        <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-clock"></i></div><span id="benefit2"><strong>Personal meet & greet</strong> - no waiting in taxi queues</span></div>
+                        <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-car"></i></div><span id="benefit3">Modern, comfortable, and clean vehicles</span></div>
+                        <div class="benefit-item"><div class="benefit-icon"><i class="fas fa-language"></i></div><span id="benefit4">English & Portuguese speaking drivers</span></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p id="footerText">
+                © 2025 Easy Transfer Lisbon - Professional transfer service throughout Portugal
+                <br>
+                <a href="faq.html" style="color: white; font-weight: bold;">FAQ</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Script da API do Google Maps -->
+    <!-- IMPORTANTE: Substitua SUA_CHAVE_API pela sua chave real! -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuRNUj_wBaMFEJlubs6MLiHifIhnjt2g0&libraries=places&callback=initAutocomplete" async defer></script>
+    
+    <!-- Ligação para o nosso ficheiro de JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>
